@@ -44,7 +44,7 @@ include "include/connect.php";
                 } else {
                     echo "<div class='form'>
                         <h3>Incorrect Username/password.</h3><br/>
-                        <p class='link'>Click here to <a href='login.php'>Login2</a> again.</p>
+                        <p class='link'>Click here to <a href='login.php'>Login</a> again.</p>
                         </div>";
                 }
             }
@@ -52,7 +52,7 @@ include "include/connect.php";
     ?>
         <div class="container">
                 <form class="form" method="post" name="login">
-                    <h1 class="login-title">Login</h1>
+                    <h1 class="login-title">Login2</h1>
                     <hr>
                     <input type="text" class="login-input" name="username" placeholder="Username" autofocus="true"/>
                     <input type="password" class="login-input" name="password" placeholder="Password"/>
