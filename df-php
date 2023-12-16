@@ -1,0 +1,16 @@
+# Use an official PHP and Apache image
+FROM php:7.4-apache
+
+# Install necessary PHP extensions and other dependencies
+RUN docker-php-ext-install mysqli pdo pdo_mysql
+
+WORKDIR /var/www/html
+
+# Copy the contents of the local sources directory to the container's /var/www/html directory
+COPY ./sources/ .
+
+# Expose port 80
+EXPOSE 80
+
+# Start Apache in the foreground
+CMD ["apache2-foreground"]
