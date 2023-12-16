@@ -2,7 +2,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: webimage-service
-  namespace: default-1702701826875
+  namespace: default
   uid: 383ac53b-c418-4b4a-90b1-5fb679ac6191
   resourceVersion: '4566'
   creationTimestamp: '2023-12-16T04:44:11Z'

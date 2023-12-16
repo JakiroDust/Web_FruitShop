@@ -3,7 +3,7 @@ apiVersion: v1
 metadata:
   name: webimage-78fdc47f44-b2zqx
   generateName: webimage-78fdc47f44-
-  namespace: default-1702701826875
+  namespace: default
   uid: 41879cf4-79b9-45c4-8e2e-8242ce7a98d0
   resourceVersion: '19256'
   creationTimestamp: '2023-12-16T05:31:43Z'
