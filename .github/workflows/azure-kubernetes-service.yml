@@ -39,7 +39,7 @@ env:
   CONTAINER_NAME: "imgtest1"
   RESOURCE_GROUP: "CloudeApp"
   CLUSTER_NAME: "testKuber"
-  DEPLOYMENT_MANIFEST_PATH: "./df-sql"
+  DEPLOYMENT_MANIFEST_PATH: "./mani/"
 
 jobs:
   buildImage:
