@@ -61,7 +61,8 @@ jobs:
       - name: Build and push image to ACR
         run: |
          # az acr build --image ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ env.CONTAINER_NAME }}:${{ github.sha }} --registry ${{ env.AZURE_CONTAINER_REGISTRY }} -g ${{ env.RESOURCE_GROUP }} .
-          az acr build --registry cloudappp  --image sqlimage2 -f ./df-sql .
+          az acr build --registry cloudappp  --image webimage -f ./df-php .
+          
   deploy:
     permissions:
       actions: read
