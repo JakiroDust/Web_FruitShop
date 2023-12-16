@@ -44,7 +44,7 @@ include "include/connect.php";
                 } else {
                     echo "<div class='form'>
                         <h3>Incorrect Username/password.</h3><br/>
-                        <p class='link'>Click here to <a href='login.php'>Login</a> again.</p>
+                        <p class='link'>Click here to <a href='login.php'>Login2</a> again.</p>
                         </div>";
                 }
             }
