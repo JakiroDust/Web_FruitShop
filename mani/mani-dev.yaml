@@ -1,240 +1,50 @@
-kind: Pod
-apiVersion: v1
-metadata:
-  name: webimage-78fdc47f44-b2zqx
-  generateName: webimage-78fdc47f44-
-  namespace: default
-  labels:
-    app: webimage
-    pod-template-hash: 78fdc47f44
-  annotations:
-    cni.projectcalico.org/containerID: da44a504cbc711e6147997ab8041a82ee3498ca17e78e366ded66e7d8d405e21
-    cni.projectcalico.org/podIP: 10.244.0.11/32
-    cni.projectcalico.org/podIPs: 10.244.0.11/32
-  ownerReferences:
-    - apiVersion: apps/v1
-      kind: ReplicaSet
-      name: webimage-78fdc47f44
-      uid: 2948a87b-dc9b-42e4-9dff-45899e963b38
-      controller: true
-      blockOwnerDeletion: true
-  managedFields:
-    - manager: kube-controller-manager
-      operation: Update
-      apiVersion: v1
-      time: '2023-12-16T05:31:43Z'
-      fieldsType: FieldsV1
-      fieldsV1:
-        f:metadata:
-          f:generateName: {}
-          f:labels:
-            .: {}
-            f:app: {}
-            f:pod-template-hash: {}
-          f:ownerReferences:
-            .: {}
-            k:{"uid":"2948a87b-dc9b-42e4-9dff-45899e963b38"}: {}
-        f:spec:
-          f:containers:
-            k:{"name":"webimage"}:
-              .: {}
-              f:image: {}
-              f:imagePullPolicy: {}
-              f:name: {}
-              f:ports:
-                .: {}
-                k:{"containerPort":80,"protocol":"TCP"}:
-                  .: {}
-                  f:containerPort: {}
-                  f:protocol: {}
-              f:resources:
-                .: {}
-                f:limits:
-                  .: {}
-                  f:cpu: {}
-                  f:memory: {}
-                f:requests:
-                  .: {}
-                  f:cpu: {}
-                  f:memory: {}
-              f:terminationMessagePath: {}
-              f:terminationMessagePolicy: {}
-          f:dnsPolicy: {}
-          f:enableServiceLinks: {}
-          f:nodeSelector: {}
-          f:restartPolicy: {}
-          f:schedulerName: {}
-          f:securityContext: {}
-          f:terminationGracePeriodSeconds: {}
-    - manager: kube-scheduler
-      operation: Update
-      apiVersion: v1
-      time: '2023-12-16T05:48:59Z'
-      fieldsType: FieldsV1
-      fieldsV1:
-        f:status:
-          f:conditions:
-            .: {}
-            k:{"type":"PodScheduled"}:
-              .: {}
-              f:lastProbeTime: {}
-              f:lastTransitionTime: {}
-              f:message: {}
-              f:reason: {}
-              f:status: {}
-              f:type: {}
-      subresource: status
-    - manager: calico
-      operation: Update
-      apiVersion: v1
-      time: '2023-12-16T05:49:41Z'
-      fieldsType: FieldsV1
-      fieldsV1:
-        f:metadata:
-          f:annotations:
-            .: {}
-            f:cni.projectcalico.org/containerID: {}
-            f:cni.projectcalico.org/podIP: {}
-            f:cni.projectcalico.org/podIPs: {}
-      subresource: status
-    - manager: kubelet
-      operation: Update
-      apiVersion: v1
-      time: '2023-12-16T05:50:05Z'
-      fieldsType: FieldsV1
-      fieldsV1:
-        f:status:
-          f:conditions:
-            k:{"type":"ContainersReady"}:
-              .: {}
-              f:lastProbeTime: {}
-              f:lastTransitionTime: {}
-              f:status: {}
-              f:type: {}
-            k:{"type":"Initialized"}:
-              .: {}
-              f:lastProbeTime: {}
-              f:lastTransitionTime: {}
-              f:status: {}
-              f:type: {}
-            k:{"type":"Ready"}:
-              .: {}
-              f:lastProbeTime: {}
-              f:lastTransitionTime: {}
-              f:status: {}
-              f:type: {}
-          f:containerStatuses: {}
-          f:hostIP: {}
-          f:phase: {}
-          f:podIP: {}
-          f:podIPs:
-            .: {}
-            k:{"ip":"10.244.0.11"}:
-              .: {}
-              f:ip: {}
-          f:startTime: {}
-      subresource: status
-spec:
-  volumes:
-    - name: kube-api-access-4ncl8
-      projected:
-        sources:
-          - serviceAccountToken:
-              expirationSeconds: 3607
-              path: token
-          - configMap:
-              name: kube-root-ca.crt
-              items:
-                - key: ca.crt
-                  path: ca.crt
-          - downwardAPI:
-              items:
-                - path: namespace
-                  fieldRef:
-                    apiVersion: v1
-                    fieldPath: metadata.namespace
-        defaultMode: 420
-  containers:
-    - name: webimage
-      image: cloudappp.azurecr.io/webimage:latest
-      ports:
-        - containerPort: 80
-          protocol: TCP
-      resources:
-        limits:
-          cpu: 500m
-          memory: 1G
-        requests:
-          cpu: '0'
-          memory: '0'
-      volumeMounts:
-        - name: kube-api-access-4ncl8
-          readOnly: true
-          mountPath: /var/run/secrets/kubernetes.io/serviceaccount
-      terminationMessagePath: /dev/termination-log
-      terminationMessagePolicy: File
-      imagePullPolicy: Always
-  restartPolicy: Always
-  terminationGracePeriodSeconds: 30
-  dnsPolicy: ClusterFirst
-  nodeSelector:
-    kubernetes.io/os: linux
-  serviceAccountName: default
-  serviceAccount: default
-  nodeName: aks-agentpool-12686772-vmss000003
-  securityContext: {}
-  schedulerName: default-scheduler
-  tolerations:
-    - key: node.kubernetes.io/not-ready
-      operator: Exists
-      effect: NoExecute
-      tolerationSeconds: 300
-    - key: node.kubernetes.io/unreachable
-      operator: Exists
-      effect: NoExecute
-      tolerationSeconds: 300
-    - key: node.kubernetes.io/memory-pressure
-      operator: Exists
-      effect: NoSchedule
-  priority: 0
-  enableServiceLinks: true
-  preemptionPolicy: PreemptLowerPriority
-status:
-  phase: Running
-  conditions:
-    - type: Initialized
-      status: 'True'
-      lastProbeTime: null
-      lastTransitionTime: '2023-12-16T05:49:39Z'
-    - type: Ready
-      status: 'True'
-      lastProbeTime: null
-      lastTransitionTime: '2023-12-16T05:50:05Z'
-    - type: ContainersReady
-      status: 'True'
-      lastProbeTime: null
-      lastTransitionTime: '2023-12-16T05:50:05Z'
-    - type: PodScheduled
-      status: 'True'
-      lastProbeTime: null
-      lastTransitionTime: '2023-12-16T05:49:39Z'
-  hostIP: 10.224.0.5
-  podIP: 10.244.0.11
-  podIPs:
-    - ip: 10.244.0.11
-  startTime: '2023-12-16T05:49:39Z'
-  containerStatuses:
-    - name: webimage
-      state:
-        running:
-          startedAt: '2023-12-16T05:50:04Z'
-      lastState: {}
-      ready: true
-      restartCount: 0
-      image: cloudappp.azurecr.io/webimage:latest
-      imageID: >-
-        cloudappp.azurecr.io/webimage@sha256:8aca866af39ccd9c77b96146e52f79162cbffe39220c2b63ed1cc440546e8086
-      containerID: >-
-        containerd://9be9923b64742547c44c05857c0600769555638b580b53d01f2b0b05f59333e5
-      started: true
-  qosClass: Burstable
+ - apiVersion: v1
+  kind: Namespace
+  metadata:
+    name: default
+  spec:
+    finalizers:
+      - kubernetes
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    name: php
+    namespace: default
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app: php
+    template:
+      metadata:
+        labels:
+          app: php
+      spec:
+        nodeSelector:
+          kubernetes.io/os: linux
+        containers:
+          - name: php
+            image: cloudappp.azurecr.io/webimage:latest
+            ports:
+              - containerPort: 80
+            resources:
+              requests:
+                cpu: '0'
+                memory: '0'
+              limits:
+                cpu: '0.5'
+                memory: 0.5G
+- apiVersion: v1
+  kind: Service
+  metadata:
+    name: php-service
+    namespace: default
+  spec:
+    type: LoadBalancer
+    ports:
+      - targetPort: 80
+        name: port80
+        port: 80
+        protocol: TCP
+    selector:
+      app: php
