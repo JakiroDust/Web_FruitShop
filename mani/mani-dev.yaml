@@ -25,7 +25,7 @@ spec:
         kubernetes.io/os: linux
       containers:
         - name: php
-          image: cloudappp.azurecr.io/webimage:latest
+          image: reghuydev.azurecr.io/webimage:latest
           ports:
             - containerPort: 80
           resources:
