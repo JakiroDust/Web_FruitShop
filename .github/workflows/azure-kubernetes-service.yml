@@ -38,7 +38,7 @@ env:
   AZURE_CONTAINER_REGISTRY: "your-azure-container-registry"
   CONTAINER_NAME: "imgtest1"
   RESOURCE_GROUP: "CloudeApp"
-  CLUSTER_NAME: "testKuber"
+  CLUSTER_NAME: "devkuber"
   DEPLOYMENT_MANIFEST_PATH: "./mani/"
 
 jobs:
