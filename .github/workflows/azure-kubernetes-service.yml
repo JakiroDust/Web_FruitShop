@@ -35,8 +35,8 @@ on:
   workflow_dispatch:
 
 env:
-  AZURE_CONTAINER_REGISTRY: "your-azure-container-registry"
-  CONTAINER_NAME: "imgtest1"
+  AZURE_CONTAINER_REGISTRY: "regfruit"
+  CONTAINER_NAME: "webimage"
   RESOURCE_GROUP: "CloudeApp"
   CLUSTER_NAME: "devkuber"
   DEPLOYMENT_MANIFEST_PATH: "./mani/"
