@@ -32,6 +32,8 @@ spec:
               value: passMySQL
           ports:
             - containerPort: 3306
+      imagePullSecrets:
+      - name: regsec
 ---
 apiVersion: v1
 kind: Service
